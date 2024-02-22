@@ -40,4 +40,9 @@ def chat_bot():
             new_answer: str = input('Type the answer or "skip" to skip: ')
 
             if new_answer.lower() != 'skip':
-                return
+                training_bank["questions"].append({"question": user_input, "answer": new_answer})
+                save_training_bank("training_bank.json", training_bank)
+                print("Bot: Thank you! I learned a new response!")
+
+if __name__ == "__main__":
+    chat_bot()
