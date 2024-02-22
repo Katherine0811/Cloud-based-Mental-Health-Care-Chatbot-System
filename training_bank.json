@@ -1,4 +1,16 @@
 {
-    "question": [
-    ]
+  "questions": [
+    {
+      "question": "Hello",
+      "answer": "Hi There!"
+    },
+    {
+      "question": "Hi",
+      "answer": "Hello to you too!"
+    },
+    {
+      "question": "How old are you?",
+      "answer": "I am a chatbot, my age does not matter."
+    }
+  ]
 }
