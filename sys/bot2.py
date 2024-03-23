@@ -73,20 +73,22 @@ def send():
 
     cn = 0
     ui=0
-    
+    plcp =[]
     for u in listp1:
-        for b in u:
-            cn = cn + 1
-            if user in b:
-                ui=b.index("Hey")
-                break;
+        plcp = [b for b in u if user.capitalize() in b]
+        cn = cn + 1
+        if user.capitalize() in plcp:
+            break
 
 
         
     user = user.capitalize()
     lcp= [u for u in listp1 if user in u]
-    randm = random.randint(0,2)
-    txt.insert(END, "\n" + "Bot -> "+str(lcp[ui][randm]))
+    reslistlen = len(listp3[cn])
+    randm = random.randint(0,reslistlen)
+    cn = cn-1
+    #lcp[ui][randm]
+    txt.insert(END, "\n" + "Bot -> "+str(listp3[cn][randm]))
     
     
 
