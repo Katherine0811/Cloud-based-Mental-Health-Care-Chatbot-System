@@ -1,3 +1,5 @@
+from tkinter import *
+import tkinter.messagebox as tkMessageBox
 import json
 # allow user to match best response for chatbot
 from difflib import get_close_matches
@@ -25,7 +27,7 @@ def get_answer_for_question(question: str, training_bank: dict) -> str | None:
             return q["answer"]
 
 # Chatbot process
-def chat_bot():
+def chat_bot_function():
     training_bank: dict = load_training_bank("training_bank.json")
     
     # Loop conversation until user prompt to exit
@@ -52,7 +54,3 @@ def chat_bot():
                 save_training_bank("training_bank.json", training_bank)
                 print("Bot: Thank you! I learned a new response!")
         print("")
-
-# Main function
-if __name__ == "__main__":
-    chat_bot()

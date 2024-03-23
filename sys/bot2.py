@@ -89,13 +89,6 @@ def send():
     cn = cn-1
     #lcp[ui][randm]
     txt.insert(END, "\n" + "Bot -> "+str(listp3[cn][randm]))
-    
-    
-
-
-
-
-
    ## if user in listp:
    ##     txt.insert(END, "\n" + "Bot -> "+user)
   ##  else:
