@@ -118,10 +118,19 @@ def Login():
         cursor.execute("SELECT * FROM `member` WHERE `username` = ? and `password` = ?", (USERNAME.get(), PASSWORD.get()))
         if cursor.fetchone() is not None:
             lbl_result1.config(text="You Successfully Login", fg="blue")
+            LoginFrame.destroy()
+            chat_bot()
         else:
             lbl_result1.config(text="Invalid Username or password", fg="red")
 LoginForm()
 
+def chat_bot():
+    chatbotFrame = Frame(root)
+    # Create UI for chatbot application
+    # Capture user input
+    # Call training.py and pass down the user input to the chatbot function
+    # Return respond and display in the screen
+    
 #========================================MENUBAR WIDGETS==================================
 menubar = Menu(root)
 filemenu = Menu(menubar, tearoff=0)
