@@ -21,13 +21,6 @@ from keras.optimizers import SGD
 import random
 
 
-
-def getresponse(n,m):
-    randm = random.randint(0,1)
-    message = n[m][randm]
-    return message
-
-
 root = Tk()
 root.title("Chatbot")
 def send():
@@ -36,65 +29,58 @@ def send():
     user = e.get().lower()
 
     # Load data from intents.json
-
-
-    count1 = 0
+    count1 = 0   
     data_file = open('intents.json').read()
-
     intents = json.loads(data_file)
 
-     
-        
-    data_file = open('intents.json').read()
+    # list to hold intents pattern and response for user and bot respectively
+    list_patternkey=[]
+    list_patternvalue=[]
+    list_responsekey=[]
+    list_responsevalue=[]
 
-    intents = json.loads(data_file)
+    # dictionary to hold intents pattern and response for user and bot respectively
+    dict_pattern={}
+    dict_response={}
 
-    listp=[]
-    listp1=[]
-    listp2=[]
-    listp3=[]
-
-    dict1={}
-    dict2={}
-
+    #loop and add values of patterns and response to dictioanry
     for m in intents["intents"]:
         count1 = count1 + 1
-        dict1[count1]=m["patterns"]
-        dict2[count1]=m["responses"]
+        dict_pattern[count1]=m["patterns"]
+        dict_response[count1]=m["responses"]
 
+    # loop to dictionary to add value of dictionary to list for pattern and response
+    for i, v in dict_pattern.items():
+        list_patternkey.append(i)
+        list_patternvalue.append(v)
 
-    for i, v in dict1.items():
-        listp.append(i)
-        listp1.append(v)
+    for i, v in dict_response.items():
+        list_responsekey.append(i)
+        list_responsevalue.append(v)
 
-    for i, v in dict2.items():
-        listp2.append(i)
-        listp3.append(v)
-
+    # counter variable to keep track of list and dictionary index
     cn = 0
-    ui=0
+    
+    # list declaration for list comprehension to filter user input with pattern in intent file
     plcp =[]
-    for u in listp1:
+
+    # loop to get index of response for bot to reply user
+    for u in list_patternvalue:
         plcp = [b for b in u if user.capitalize() in b]
         cn = cn + 1
         if user.capitalize() in plcp:
             break
 
-
-        
+    #randomize bot response based on intent 
     user = user.capitalize()
-    lcp= [u for u in listp1 if user in u]
-    reslistlen = len(listp3[cn])
+    lcp= [u for u in list_patternvalue if user in u]
+    reslistlen = len(list_responsevalue[cn])
     randm = random.randint(0,reslistlen)
     cn = cn-1
-    #lcp[ui][randm]
-    txt.insert(END, "\n" + "Bot -> "+str(listp3[cn][randm]))
-   ## if user in listp:
-   ##     txt.insert(END, "\n" + "Bot -> "+user)
-  ##  else:
-    ##    txt.insert(END, "\n" + "Bot -> "+str(rs))
-
-
+    
+    # print bot response to screen
+    txt.insert(END, "\n" + "Bot -> "+str(list_responsevalue[cn][randm]))
+    
     e.delete(0, END)
 txt = Text(root)
 txt.grid(row=0, column=0, columnspan=2)
