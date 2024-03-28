@@ -1,10 +1,10 @@
 from tkinter import *
 
-import nltk
+# import nltk
 
-from nltk.stem import WordNetLemmatizer
+# from nltk.stem import WordNetLemmatizer
 
-lemmatizer = WordNetLemmatizer()
+# lemmatizer = WordNetLemmatizer()
 
 import json
 
@@ -12,11 +12,11 @@ import pickle
 
 import numpy as np
 
-from keras.models import Sequential
+# from keras.models import Sequential
 
-from keras.layers import Dense, Activation, Dropout
+# from keras.layers import Dense, Activation, Dropout
 
-from keras.optimizers import SGD
+# from keras.optimizers import SGD
 
 import random
 
@@ -82,6 +82,7 @@ def send():
     txt.insert(END, "\n" + "Bot -> "+str(list_responsevalue[cn][randm]))
     
     e.delete(0, END)
+    
 txt = Text(root)
 txt.grid(row=0, column=0, columnspan=2)
 e = Entry(root, width=100)
