@@ -208,7 +208,7 @@ def send_message(user_input, chat_history):
         response = training.get_answer_for_question(best_question,data)
 
         #display_message(best_question, chat_history)
-        display_message(response+"\n", chat_history)
+        display_message(str(training.chat_bot_function(message))+"\n", chat_history)
 
     ########################## End of Modification ###########################
         
