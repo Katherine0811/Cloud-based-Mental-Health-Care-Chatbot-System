@@ -595,10 +595,6 @@
     {
       "question": "Hello there. Glad to see you're back. What's going on in your world right now?",
       "answer": "hello there"
-    },
-    {
-      "question": "hello there",
-      "answer": "hello there"
     }
   ]
 }

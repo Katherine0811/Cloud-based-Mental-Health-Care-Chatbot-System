@@ -170,45 +170,9 @@ def send_message(user_input, chat_history):
 
         ########################## Modification ###########################
 
-        #dictionary for the intent in the json file
-        data ={}
-        
-        #counter to enumerate key and identify key
-        count1=0
-
-        # list to hold intents pattern and response for user and bot respectively
-        list_questionkey=[]
-        list_questionvalue=[]
-        list_answerkey=[]
-        list_answervalue=[]
-        
-        # dictionary to hold intents question and answer for user and bot respectively
-        dict_question={}
-        dict_answer={}
-        
-        data = training.load_training_bank("training_bank.json")
-
-        for m in data["questions"]:
-            count1 = count1 + 1
-            dict_question[count1]=m["question"]
-            dict_answer[count1]=m["answer"]
-
-
-        # loop to dictionary to add value of dictionary to list for pattern and response
-        for i, v in dict_question.items():
-            list_questionkey.append(i)
-            list_questionvalue.append(v)
-
-        for i, v in dict_answer.items():
-            list_answerkey.append(i)
-            list_answervalue.append(v)
-            
-        best_question = training.find_best_match(message,list_questionvalue)
-
-        response = training.get_answer_for_question(best_question,data)
 
         #display_message(best_question, chat_history)
-        display_message(str(training.chat_bot_function(message))+"\n", chat_history)
+        display_message("Bot: "+str(training.train_chatterbot(message))+"\n", chat_history)
 
     ########################## End of Modification ###########################
         
