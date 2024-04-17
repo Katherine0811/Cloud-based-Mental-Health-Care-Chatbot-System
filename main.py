@@ -218,6 +218,7 @@ if __name__ == '__main__':
     root.config(menu = menubar)
 
     database()
-    chat_bot(root)
+    #chat_bot(root)
+    login_form(root)
     root.mainloop()
    
